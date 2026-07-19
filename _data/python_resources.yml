@@ -1,0 +1,128 @@
+# =============================================================================
+# Python / Google Colab resource directory (Resources page).
+#
+# This is STABLE reference data, not semester-specific — it lives in its own data
+# file so it doesn't clutter course.yml (the file instructors edit each term).
+# Google Colab runs Python 3.12, so official-doc links point at the 3.12 docs.
+#
+# The Resources page renders every record below into a card and filters them
+# client-side by `source`, by `topic`, and by a title search. To add a resource,
+# append one record to `resources:` with a `source` (must match a `sources` id)
+# and `topics` (each must match a `topics` id). Re-check links before each term —
+# W3Schools / GeeksforGeeks occasionally reorganize URLs. (Links verified live
+# 2026-07-18.)
+# =============================================================================
+
+# Filter facet: source. `id` is used on the record; `label` is the badge/button text.
+sources:
+  - { id: python-docs,     label: "Python 3.12 docs" }
+  - { id: colab,           label: "Colab" }
+  - { id: pandas-docs,     label: "pandas docs" }
+  - { id: sklearn-docs,    label: "scikit-learn docs" }
+  - { id: matplotlib-docs, label: "matplotlib docs" }
+  - { id: realpython,      label: "Real Python" }
+  - { id: w3schools,       label: "W3Schools" }
+  - { id: geeksforgeeks,   label: "GeeksforGeeks" }
+
+# Filter facet: topic. Order here is the order the topic buttons appear in.
+topics:
+  - { id: getting-started, label: "Getting started" }
+  - { id: reference,       label: "Reference" }
+  - { id: io,              label: "Input / output" }
+  - { id: math,            label: "Math" }
+  - { id: variables,       label: "Variables" }
+  - { id: booleans,        label: "Booleans" }
+  - { id: conditionals,    label: "Conditionals" }
+  - { id: loops,           label: "Loops" }
+  - { id: nested-loops,    label: "Nested loops" }
+  - { id: break-continue,  label: "Break / continue" }
+  - { id: lists,           label: "Lists" }
+  - { id: dictionaries,    label: "Dictionaries" }
+  - { id: functions,       label: "Functions" }
+  - { id: scope,           label: "Scope" }
+  - { id: libraries,       label: "Libraries" }
+  - { id: pandas,          label: "pandas" }
+  - { id: sklearn,         label: "scikit-learn" }
+  - { id: matplotlib,      label: "matplotlib" }
+  - { id: errors,          label: "Errors & exceptions" }
+  - { id: debugging,       label: "Debugging" }
+  - { id: images,          label: "Images" }
+
+# Each record: title, url, source (one id), topics (one or more ids).
+resources:
+  # Getting started / reference
+  - { title: 'Welcome to Colab (official intro notebook)', url: 'https://colab.research.google.com/notebooks/welcome.ipynb', source: colab, topics: [getting-started] }
+  - { title: 'Overview of Colab Features', url: 'https://colab.research.google.com/notebooks/basic_features_overview.ipynb', source: colab, topics: [getting-started] }
+  - { title: 'Python 3.12 Documentation (home)', url: 'https://docs.python.org/3.12/', source: python-docs, topics: [reference, getting-started] }
+  - { title: 'The Python Tutorial — table of contents (menu)', url: 'https://docs.python.org/3.12/tutorial/index.html', source: python-docs, topics: [reference, getting-started] }
+  - { title: 'The Python Standard Library — index (menu)', url: 'https://docs.python.org/3.12/library/index.html', source: python-docs, topics: [reference] }
+  - { title: 'Built-in Functions reference (print, input, etc.)', url: 'https://docs.python.org/3.12/library/functions.html', source: python-docs, topics: [reference, io] }
+  - { title: 'Python Cheat Sheet', url: 'https://realpython.com/cheatsheets/python/', source: realpython, topics: [reference, getting-started] }
+  # Input / output
+  - { title: 'Input and Output (Python tutorial)', url: 'https://docs.python.org/3.12/tutorial/inputoutput.html', source: python-docs, topics: [io] }
+  - { title: 'Python Output / print text', url: 'https://www.w3schools.com/python/python_output.asp', source: w3schools, topics: [io] }
+  - { title: 'Python User Input', url: 'https://www.w3schools.com/python/python_user_input.asp', source: w3schools, topics: [io] }
+  - { title: 'print() Function reference', url: 'https://www.w3schools.com/python/ref_func_print.asp', source: w3schools, topics: [io, reference] }
+  - { title: 'input() Function reference', url: 'https://www.w3schools.com/python/ref_func_input.asp', source: w3schools, topics: [io, reference] }
+  # Math & operators
+  - { title: 'Python Operators', url: 'https://www.w3schools.com/python/python_operators.asp', source: w3schools, topics: [math] }
+  - { title: 'Python Math', url: 'https://www.w3schools.com/python/python_math.asp', source: w3schools, topics: [math] }
+  - { title: 'Python Operators', url: 'https://www.geeksforgeeks.org/python/python-operators/', source: geeksforgeeks, topics: [math] }
+  - { title: 'Python Logical Operators', url: 'https://www.geeksforgeeks.org/python/python-logical-operators/', source: geeksforgeeks, topics: [math, booleans] }
+  # Variables
+  - { title: 'Python Variables', url: 'https://www.w3schools.com/python/python_variables.asp', source: w3schools, topics: [variables] }
+  - { title: 'Python Variables', url: 'https://www.geeksforgeeks.org/python/python-variables/', source: geeksforgeeks, topics: [variables] }
+  # Booleans
+  - { title: 'Python Booleans', url: 'https://www.w3schools.com/python/python_booleans.asp', source: w3schools, topics: [booleans] }
+  - { title: 'Python Boolean data type', url: 'https://www.geeksforgeeks.org/python/boolean-data-type-in-python/', source: geeksforgeeks, topics: [booleans] }
+  - { title: 'Understanding Boolean Logic in Python 3', url: 'https://www.geeksforgeeks.org/python/understanding-boolean-logic-in-python-3/', source: geeksforgeeks, topics: [booleans] }
+  # Conditionals
+  - { title: 'Python If ... Else', url: 'https://www.w3schools.com/python/python_conditions.asp', source: w3schools, topics: [conditionals] }
+  - { title: 'Python If Else Statements', url: 'https://www.geeksforgeeks.org/python/python-if-else/', source: geeksforgeeks, topics: [conditionals] }
+  - { title: 'More Control Flow Tools (if / for; Python tutorial)', url: 'https://docs.python.org/3.12/tutorial/controlflow.html', source: python-docs, topics: [conditionals, loops, functions] }
+  # Loops + break / continue / nested
+  - { title: 'Python For Loops', url: 'https://www.w3schools.com/python/python_for_loops.asp', source: w3schools, topics: [loops] }
+  - { title: 'Python While Loops', url: 'https://www.w3schools.com/python/python_while_loops.asp', source: w3schools, topics: [loops] }
+  - { title: 'Python While Loop', url: 'https://www.geeksforgeeks.org/python/python-while-loop/', source: geeksforgeeks, topics: [loops] }
+  - { title: 'Python Nested Loops', url: 'https://www.geeksforgeeks.org/python/python-nested-loops/', source: geeksforgeeks, topics: [loops, nested-loops] }
+  - { title: 'break, continue and pass in Python', url: 'https://www.geeksforgeeks.org/break-continue-and-pass-in-python/', source: geeksforgeeks, topics: [loops, break-continue] }
+  - { title: 'Python Break Statement', url: 'https://www.geeksforgeeks.org/python/python-break-statement/', source: geeksforgeeks, topics: [break-continue] }
+  - { title: 'Python "for" Loops (The Pythonic Way)', url: 'https://realpython.com/python-for-loop/', source: realpython, topics: [loops] }
+  - { title: 'Python "while" Loops', url: 'https://realpython.com/python-while-loop/', source: realpython, topics: [loops] }
+  - { title: 'Loops and Conditionals (video)', url: 'https://realpython.com/lessons/loops-and-conditionals/', source: realpython, topics: [loops, conditionals] }
+  # Lists
+  - { title: 'Python Lists', url: 'https://www.w3schools.com/python/python_lists.asp', source: w3schools, topics: [lists] }
+  - { title: 'Data Structures — Lists (Python tutorial)', url: 'https://docs.python.org/3.12/tutorial/datastructures.html', source: python-docs, topics: [lists, dictionaries] }
+  # Dictionaries
+  - { title: 'Python Dictionaries', url: 'https://www.w3schools.com/python/python_dictionaries.asp', source: w3schools, topics: [dictionaries] }
+  - { title: 'Python Dictionary', url: 'https://www.geeksforgeeks.org/python/python-dictionary/', source: geeksforgeeks, topics: [dictionaries] }
+  # Functions & scope
+  - { title: 'Python Functions', url: 'https://www.w3schools.com/python/python_functions.asp', source: w3schools, topics: [functions] }
+  - { title: 'Defining Functions (Python tutorial)', url: 'https://docs.python.org/3.12/tutorial/controlflow.html#defining-functions', source: python-docs, topics: [functions] }
+  - { title: 'Python Scope', url: 'https://www.w3schools.com/python/python_scope.asp', source: w3schools, topics: [scope] }
+  - { title: 'Python Scope of Variables', url: 'https://www.geeksforgeeks.org/python/python-scope-of-variables/', source: geeksforgeeks, topics: [scope] }
+  # Libraries — pandas
+  - { title: 'Getting started — pandas docs', url: 'https://pandas.pydata.org/docs/getting_started/index.html', source: pandas-docs, topics: [libraries, pandas, getting-started] }
+  - { title: '10 minutes to pandas', url: 'https://pandas.pydata.org/docs/user_guide/10min.html', source: pandas-docs, topics: [libraries, pandas] }
+  - { title: 'Getting started tutorials (intro tutorials)', url: 'https://pandas.pydata.org/docs/getting_started/intro_tutorials/', source: pandas-docs, topics: [libraries, pandas] }
+  - { title: 'How do I create plots? (pandas + matplotlib)', url: 'https://pandas.pydata.org/docs/getting_started/intro_tutorials/04_plotting.html', source: pandas-docs, topics: [libraries, pandas, matplotlib] }
+  - { title: 'Pandas Tutorial (intro)', url: 'https://www.w3schools.com/python/pandas/pandas_intro.asp', source: w3schools, topics: [libraries, pandas] }
+  - { title: 'The pandas DataFrame', url: 'https://realpython.com/pandas-dataframe/', source: realpython, topics: [libraries, pandas] }
+  # Libraries — matplotlib
+  - { title: 'Pyplot tutorial', url: 'https://matplotlib.org/stable/tutorials/pyplot.html', source: matplotlib-docs, topics: [libraries, matplotlib] }
+  - { title: 'Matplotlib Tutorials (index)', url: 'https://matplotlib.org/stable/tutorials/index.html', source: matplotlib-docs, topics: [libraries, matplotlib] }
+  - { title: 'Matplotlib Intro', url: 'https://www.w3schools.com/python/matplotlib_intro.asp', source: w3schools, topics: [libraries, matplotlib] }
+  - { title: 'Matplotlib Pyplot', url: 'https://www.w3schools.com/python/matplotlib_pyplot.asp', source: w3schools, topics: [libraries, matplotlib] }
+  # Libraries — scikit-learn
+  - { title: 'Getting Started — scikit-learn docs', url: 'https://scikit-learn.org/stable/getting_started.html', source: sklearn-docs, topics: [libraries, sklearn, getting-started] }
+  - { title: 'An introduction to machine learning with scikit-learn', url: 'https://scikit-learn.org/stable/tutorial/basic/tutorial.html', source: sklearn-docs, topics: [libraries, sklearn] }
+  - { title: 'Python Machine Learning — Getting Started', url: 'https://www.w3schools.com/python/python_ml_getting_started.asp', source: w3schools, topics: [libraries, sklearn] }
+  # Errors, exceptions & debugging
+  - { title: 'Errors and Exceptions (Python tutorial)', url: 'https://docs.python.org/3.12/tutorial/errors.html', source: python-docs, topics: [errors] }
+  - { title: 'Python Try Except', url: 'https://www.w3schools.com/python/python_try_except.asp', source: w3schools, topics: [errors, debugging] }
+  - { title: 'Python Try Except', url: 'https://www.geeksforgeeks.org/python/python-try-except/', source: geeksforgeeks, topics: [errors, debugging] }
+  - { title: 'Python Exception Handling', url: 'https://www.geeksforgeeks.org/python/python-exception-handling/', source: geeksforgeeks, topics: [errors, debugging] }
+  # Image manipulation (Pillow / PIL)
+  - { title: 'Python Pillow Tutorial', url: 'https://www.geeksforgeeks.org/python/python-pillow-tutorial/', source: geeksforgeeks, topics: [images] }
+  - { title: 'Python Pillow — Working with Images', url: 'https://www.geeksforgeeks.org/python/python-pillow-working-with-images/', source: geeksforgeeks, topics: [images] }
+  - { title: 'Image Processing With the Python Pillow Library', url: 'https://realpython.com/image-processing-with-the-python-pillow-library/', source: realpython, topics: [images] }

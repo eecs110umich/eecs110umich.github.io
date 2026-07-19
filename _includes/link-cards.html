@@ -1,0 +1,23 @@
+{% comment %}
+  Renders a list of { name, url, note } entries as a card grid.
+  A url left as "TODO" (or blank) renders as plain text marked "coming soon"
+  instead of a broken link, so the site is presentable before real URLs exist.
+  Works at any list length.
+
+  Usage:  {% include link-cards.html items=site.data.course.links %}
+{% endcomment %}
+<ul class="card-grid">
+  {% for item in include.items %}
+  {% assign has_url = false %}
+  {% if item.url and item.url != "" and item.url != "TODO" %}{% assign has_url = true %}{% endif %}
+  <li class="card link-card">
+    {% if has_url %}
+      <h3><a href="{{ item.url }}">{{ item.name }}</a></h3>
+    {% else %}
+      <h3>{{ item.name }}</h3>
+    {% endif %}
+    {% if item.note and item.note != "" %}<p class="note">{{ item.note }}</p>{% endif %}
+    {% unless has_url %}<p class="pending">Link coming soon</p>{% endunless %}
+  </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,682 @@
+/* ==========================================================================
+   EECS 110 — Discover Computer Science
+   One hand-written stylesheet. No frameworks, no CDN, no external fonts.
+   Light theme. Left nav (subtle gray) against a white main column.
+   ========================================================================== */
+
+:root {
+  /* Palette — subtle gray nav, white content, University of Michigan accents */
+  --nav-bg:        #eef1f4;   /* subtle gray, clearly lighter than content */
+  --nav-border:    #d5dbe1;
+  --content-bg:    #ffffff;
+  --page-bg:       #eef1f4;
+
+  --text:          #1c2733;   /* near-black, high contrast on white */
+  --text-muted:    #55606b;
+  --heading:       #00274c;   /* Michigan blue */
+  --accent:        #00539c;   /* link blue (accessible on white) */
+  --accent-dark:   #003d75;
+  --maize:         #ffcb05;   /* used only as an active-state marker, not text */
+
+  --card-border:   #dde2e8;
+  --card-shadow:   0 1px 3px rgba(16, 33, 50, 0.08);
+
+  --maxw:          860px;     /* readable measure for the content column */
+  --nav-w:         248px;
+
+  --radius:        10px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+}
+
+/* --- base ---------------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--page-bg);
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover, a:focus { color: var(--accent-dark); text-decoration: underline; }
+
+img { max-width: 100%; height: auto; }
+
+h1, h2, h3 { color: var(--heading); line-height: 1.25; }
+h1 { font-size: 1.9rem; margin: 0 0 0.4em; }
+h2 { font-size: 1.4rem; margin: 1.8em 0 0.6em; }
+h3 { font-size: 1.15rem; margin: 1.4em 0 0.4em; }
+
+/* Keyboard-only skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--heading);
+  color: #fff;
+  padding: 0.6em 1em;
+  z-index: 100;
+}
+.skip-link:focus { left: 0; }
+
+/* Visible focus outline for keyboard users */
+a:focus-visible, :focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* --- overall layout ------------------------------------------------------ */
+
+.layout {
+  display: flex;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
+.content-col {
+  flex: 1 1 auto;
+  min-width: 0;                 /* let the column shrink instead of overflow */
+  display: flex;
+  flex-direction: column;
+  background: var(--content-bg);
+}
+
+.site-main {
+  flex: 1 0 auto;
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 2.2rem 2rem 2.5rem;
+}
+
+/* --- left navigation ----------------------------------------------------- */
+
+.site-nav {
+  flex: 0 0 var(--nav-w);
+  background: var(--nav-bg);
+  border-right: 1px solid var(--nav-border);
+  padding: 1.6rem 1.25rem;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.nav-logo { display: inline-block; margin-bottom: 0.75rem; }
+
+.nav-title {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--heading);
+  letter-spacing: 0.01em;
+}
+.nav-title:hover, .nav-title:focus { text-decoration: none; }
+
+.nav-subtitle {
+  margin: 0.15rem 0 1.4rem;
+  font-size: 0.98rem;
+  color: var(--text-muted);
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links li { margin: 0; }
+
+.nav-links a {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  margin: 0.15rem 0;
+  border-radius: 8px;
+  border-left: 4px solid transparent;
+  color: var(--text);
+  font-size: 1.05rem;          /* comfortably sized nav font */
+  font-weight: 500;
+}
+.nav-links a:hover, .nav-links a:focus {
+  background: #e2e7ee;
+  text-decoration: none;
+}
+.nav-links a[aria-current="page"] {
+  background: #e2e7ee;
+  border-left-color: var(--maize);
+  color: var(--heading);
+  font-weight: 700;
+}
+
+/* --- home banner + header ------------------------------------------------ */
+
+.banner {
+  margin: -2.2rem -2rem 1.5rem;   /* bleed to the edges of the content column */
+}
+.banner img {
+  display: block;
+  width: 100%;
+  height: 180px;                  /* slim */
+  object-fit: cover;
+}
+
+.page-header { margin-bottom: 0.5rem; }
+.page-header .tagline {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+/* Small meta line (term · meeting time · location) */
+.course-meta {
+  font-size: 0.98rem;
+  color: var(--text-muted);
+  margin: 0.4rem 0 0;
+}
+.course-meta span + span::before { content: " · "; }
+
+/* --- generic content bits ------------------------------------------------ */
+
+.lead { font-size: 1.1rem; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--card-border);
+  margin: 2rem 0;
+}
+
+/* Weekly-rhythm "at a glance" list */
+.rhythm {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.rhythm li {
+  background: var(--nav-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+}
+
+/* --- cards (staff, links, resources) ------------------------------------- */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 1.1rem 1.2rem;
+  background: #fff;
+}
+.card h3 { margin: 0 0 0.3rem; }
+.card p  { margin: 0.3rem 0 0; }
+.card .note { color: var(--text-muted); font-size: 0.95rem; }
+.card .todo { color: var(--text-muted); font-style: italic; }
+
+/* Link cards show the URL state clearly */
+.link-card .pending {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* --- staff: full-width two-column cards ---------------------------------- */
+
+.staff-list {
+  list-style: none;
+  margin: 1.3rem 0;
+  padding: 0;
+  display: grid;
+  gap: 1.3rem;
+}
+
+.staff-card {
+  display: flex;
+  gap: 1.6rem;
+  padding: 1.5rem 1.6rem;
+  text-align: left;
+}
+
+/* Left column: photo, meta lines, emoji row — centered within a fixed track. */
+.staff-card__aside {
+  flex: 0 0 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.staff-card__main { flex: 1 1 auto; min-width: 0; }
+
+.staff-photo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 0 0.7rem;
+  display: block;
+  background: var(--nav-bg);
+}
+/* Shown instead of a photo when a card has none: a neutral initial avatar. */
+.staff-photo--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #8a96a3;
+  background: var(--nav-bg);
+  border: 1px solid var(--card-border);
+  text-transform: uppercase;
+}
+
+/* Three lighter-gray meta lines under the photo */
+.staff-meta {
+  list-style: none;
+  margin: 0.1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  word-break: break-word;
+}
+
+/* Emoji reveal row */
+.staff-reveals {
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+}
+.staff-reveals li { margin: 0; }
+
+/* Each reveal is a focusable button; its text shows on hover/focus (CSS tip)
+   and is always available to screen readers via aria-label on the button. */
+.reveal {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  font-size: 1.25rem;
+  line-height: 1;
+  background: #fff;
+  border: 1px solid var(--card-border);
+  border-radius: 9px;
+  cursor: pointer;
+}
+.reveal:hover, .reveal:focus-visible {
+  background: var(--nav-bg);
+  border-color: var(--accent);
+}
+.reveal__tip {
+  position: absolute;
+  bottom: calc(100% + 9px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: min(240px, 72vw);
+  padding: 0.5rem 0.7rem;
+  background: var(--heading);
+  color: #fff;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  text-align: left;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(16, 33, 50, 0.28);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.12s ease;
+  pointer-events: none;
+  z-index: 20;
+}
+/* Little downward caret under the tip */
+.reveal__tip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--heading);
+}
+.reveal:hover .reveal__tip,
+.reveal:focus .reveal__tip,
+.reveal:focus-within .reveal__tip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Name / role badge / bio (right column) */
+.staff-card__name { margin: 0; font-size: 1.4rem; }
+.staff-card .role {
+  display: inline-block;
+  margin: 0.35rem 0 0.7rem;
+  padding: 0.2rem 0.65rem;
+  background: var(--nav-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.staff-card .blurb { color: var(--text); }
+.staff-card .blurb p { margin: 0.7rem 0; }
+.staff-card .blurb p:first-child { margin-top: 0; }
+.staff-card .blurb p:last-child { margin-bottom: 0; }
+
+/* --- home: syllabus call-out card ---------------------------------------- */
+
+.syllabus-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin: 1.4rem 0;
+  padding: 1.05rem 1.2rem;
+  background: #f6fafd;
+  border: 1px solid var(--card-border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+}
+a.syllabus-card:hover, a.syllabus-card:focus {
+  background: #eaf3fb;
+  text-decoration: none;
+}
+.syllabus-card__title { font-size: 1.1rem; font-weight: 700; color: var(--heading); }
+.syllabus-card__note { color: var(--text-muted); font-size: 0.95rem; }
+.syllabus-card--pending .syllabus-card__note { font-style: italic; }
+
+/* --- schedule: weekly calendar ------------------------------------------- */
+
+/* Three calendar categories, each a light background + darker left border + dark
+   ink (all high-contrast, none red). Green = Class, blue = Office hours,
+   amber = Deadline. The left border + printed category word carry the meaning
+   too, so color is never the only signal. */
+.pill--class        { --pill-bg: #daf0e4; --pill-line: #1c8f5a; --pill-ink: #0d5233; }
+.pill--office_hours { --pill-bg: #dbe7f3; --pill-line: #00539c; --pill-ink: #00274c; }
+.pill--deadline     { --pill-bg: #fbeecb; --pill-line: #b07d06; --pill-ink: #664700; }
+
+.cal-legend {
+  list-style: none;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.cal-legend li { display: flex; align-items: center; gap: 0.4rem; }
+.pill-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: var(--pill-bg);
+  border-left: 4px solid var(--pill-line);
+}
+
+.cal-grid {
+  list-style: none;
+  margin: 1.2rem 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.8rem;
+}
+.cal-day { display: flex; flex-direction: column; padding: 0.85rem 0.85rem 1rem; }
+.cal-day__name {
+  margin: 0 0 0.6rem;
+  padding-bottom: 0.4rem;
+  font-size: 1rem;
+  border-bottom: 1px solid var(--card-border);
+}
+.cal-events { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+
+.cal-pill {
+  display: flex;
+  flex-direction: column;
+  padding: 0.45rem 0.6rem;
+  background: var(--pill-bg);
+  color: var(--pill-ink);
+  border-left: 4px solid var(--pill-line);
+  border-radius: 6px;
+}
+.cal-pill__time { font-size: 0.8rem; font-weight: 600; }
+.cal-pill__label { font-weight: 600; }
+.cal-pill__type {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+}
+
+.cal-note { margin-top: 1.4rem; }
+
+/* --- FAQ accordions ------------------------------------------------------ */
+
+.faq { display: grid; gap: 0.6rem; margin: 1.3rem 0; }
+.faq-item {
+  background: #fff;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+.faq-item > summary {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  padding: 0.9rem 1.1rem;
+  font-weight: 600;
+  color: var(--heading);
+  cursor: pointer;
+  list-style: none;
+}
+.faq-item > summary::-webkit-details-marker { display: none; }
+.faq-item > summary::before {
+  content: "+";
+  flex: 0 0 auto;
+  font-weight: 700;
+  color: var(--accent);
+}
+.faq-item[open] > summary::before { content: "\2013"; }
+.faq-item > summary:hover { background: var(--nav-bg); }
+.faq-answer { padding: 0.1rem 1.1rem 1.05rem 2.35rem; }
+.faq-answer > :first-child { margin-top: 0; }
+.faq-answer > :last-child { margin-bottom: 0; }
+
+/* --- academic-integrity policy page -------------------------------------- */
+
+.policy > :first-child { margin-top: 0; }
+
+/* --- home: grading table ------------------------------------------------- */
+
+.table-wrap { overflow-x: auto; margin: 1rem 0; }
+.table-wrap table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 34rem;              /* scrolls inside .table-wrap on a phone */
+  font-size: 0.96rem;
+}
+.table-wrap th, .table-wrap td {
+  border: 1px solid var(--card-border);
+  padding: 0.55rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+.table-wrap thead th { background: var(--nav-bg); color: var(--heading); }
+.table-wrap th:nth-child(2), .table-wrap td:nth-child(2) {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* --- resources: filterable Python directory ------------------------------ */
+
+.pyres { margin: 1.2rem 0; }
+
+.pyres-filters { display: grid; gap: 1rem; margin-bottom: 1rem; }
+
+.pyres-search label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 0.3rem;
+  color: var(--heading);
+}
+.pyres-search input {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  font: inherit;
+  background: #fff;
+}
+
+.pyres-facet {
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.9rem 0.8rem;
+}
+.pyres-facet legend {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--heading);
+  padding: 0 0.3rem;
+}
+.pyres-facet label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.25rem 0.9rem 0.25rem 0;
+  font-size: 0.9rem;
+}
+.pyres-facet input { flex: 0 0 auto; }
+
+#pyres-clear {
+  justify-self: start;
+  padding: 0.45rem 0.9rem;
+  background: #fff;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  font: inherit;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+#pyres-clear:hover, #pyres-clear:focus { background: var(--nav-bg); }
+
+.pyres-count { color: var(--text-muted); font-size: 0.9rem; margin: 0 0 1rem; }
+
+.pyres-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; }
+.pyres-card {
+  background: #fff;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 0.8rem 1rem;
+}
+.pyres-card[hidden] { display: none; }
+.pyres-card__title { font-weight: 600; }
+.pyres-card__tags {
+  margin: 0.45rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+.pyres-badge {
+  background: var(--heading);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.12rem 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+.pyres-tag {
+  background: var(--nav-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-muted);
+  border-radius: 999px;
+  padding: 0.12rem 0.6rem;
+  font-size: 0.72rem;
+}
+.pyres-empty { color: var(--text-muted); font-style: italic; }
+
+/* --- footer -------------------------------------------------------------- */
+
+.site-footer {
+  flex-shrink: 0;
+  border-top: 1px solid var(--card-border);
+  padding: 1.4rem 2rem;
+  max-width: var(--maxw);
+  width: 100%;
+  margin: 0 auto;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.site-footer p { margin: 0.3rem 0; }
+.footer-copy { font-weight: 600; color: var(--text); }
+
+/* --- responsive: stack the nav on top on narrow screens ------------------ */
+
+@media (max-width: 720px) {
+  .layout { flex-direction: column; }
+
+  .site-nav {
+    flex-basis: auto;
+    width: 100%;
+    height: auto;
+    position: static;
+    border-right: 0;
+    border-bottom: 1px solid var(--nav-border);
+    padding: 1rem 1.1rem;
+  }
+  .nav-subtitle { margin-bottom: 0.8rem; }
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+  .nav-links a { border-left: 0; border-bottom: 4px solid transparent; }
+  .nav-links a[aria-current="page"] {
+    border-left: 0;
+    border-bottom-color: var(--maize);
+  }
+
+  .site-main { padding: 1.5rem 1.1rem 2rem; }
+  .banner { margin: -1.5rem -1.1rem 1.2rem; }
+  .banner img { height: 130px; }
+  .site-footer { padding: 1.2rem 1.1rem; }
+
+  /* Calendar: stack the five day-columns vertically. */
+  .cal-grid { grid-template-columns: 1fr; }
+
+  /* Staff: stack the two columns (photo/meta/emoji on top, name/bio below). */
+  .staff-card { flex-direction: column; gap: 1rem; }
+  .staff-card__aside { flex-basis: auto; }
+}

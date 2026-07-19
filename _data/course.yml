@@ -1,0 +1,156 @@
+# =============================================================================
+# Semester-specific content. EDITING THIS FILE is the normal per-semester update.
+#
+# Anything that changes from term to term lives here — term, meeting time, the
+# weekly calendar, links, staff, integrity statement. If you find yourself
+# editing a layout or a page to change a date, URL, name, or room, it belongs
+# here instead. See README.md ("What to change each semester").
+#
+# Every field marked `TODO` is a placeholder: the site builds today, and the
+# TODO shows you exactly what to replace. The lists (weekly_calendar, links,
+# staff) render at ANY length — add or remove entries freely.
+#
+# Key map:
+#   course              — code/name/term + tagline + syllabus link (Home banner).
+#   course.term_season  — "fall" | "winter"; gates term-specific FAQ entries.
+#   meeting             — when/where class meets (meta line).
+#   weekly_calendar     — drives the Schedule page's Mon–Fri calendar. One entry
+#                         per weekday; each event has a time (may be blank), a
+#                         label, and a `type`. Types collapse to THREE calendar
+#                         colors: class|quiz|lab all show as "Class",
+#                         office_hours shows as "Office hours", and deadline
+#                         shows as "Deadline".
+#   links               — current-student links; `home: true` also shows on Home.
+#   staff               — one block per person, instructor first; per-person
+#                         fields feed the wide card + emoji reveals. Blank fields
+#                         are simply omitted from the card.
+#   academic_integrity_summary — short footer line, shown site-wide.
+#   academic_integrity_full    — full policy (rendered on the /academic-integrity/
+#                         page, which is currently unpublished — see that file).
+#
+# (The Python resources directory reads from a separate data file,
+#  _data/python_resources.yml — it's stable reference data, not semester-specific.)
+# =============================================================================
+
+course:
+  code: "EECS 110"
+  name: "Discover Computer Science"
+  credits: 2
+  university: "University of Michigan"
+  term: "Fall 2026"
+  term_season: "fall"          # "fall" | "winter" — gates term-specific FAQ entries
+  tagline: ""                  # optional welcoming line under the title; blank = hidden
+
+  syllabus_url: "https://docs.google.com/document/d/1kqoNdzTBMdZHj794mee9GCHgADdsBs3kI62xocBRn8M/edit?usp=sharing"
+
+meeting:
+  day: "Tuesday"
+  time: "3:30–5:30 pm"
+  location: "CHRYS 151"          # TODO: confirm room each term
+  timezone: "America/Detroit"
+
+# The weekly-calendar view on the Schedule page renders from this. One entry per
+# weekday (Mon–Fri). Each event has a time (may be blank/omitted), a label, and a
+# `type` that drives its color + the legend. There are THREE calendar colors:
+#   class | quiz | lab  → shown as "Class"
+#   office_hours        → shown as "Office hours"
+#   deadline            → shown as "Deadline"
+# Office-hours times not yet finalized read "Time TBD" (safe to publish as-is).
+weekly_calendar:
+  - day: "Monday"
+    events:
+      - { time: "Time TBD", label: "Office hours", type: "office_hours" }
+  - day: "Tuesday"
+    events:
+      - { time: "3:30–4:20 pm", label: "Lecture",       type: "class" }
+      - { time: "4:20–4:30 pm", label: "Quiz",          type: "quiz" }
+      - { time: "4:30–5:30 pm", label: "Lab",           type: "lab" }
+      - { time: "5:30–6:30 pm", label: "Office hours",  type: "office_hours" }
+      - { time: "11:59 pm",     label: "Homework due",  type: "deadline" }
+  - day: "Wednesday"
+    events:
+      - { time: "Time TBD",   label: "Office hours",     type: "office_hours" }
+      - { time: "11:59 pm",   label: "Quiz & lab due",   type: "deadline" }
+  - day: "Thursday"
+    events:
+      - { time: "Time TBD", label: "Office hours", type: "office_hours" }
+  - day: "Friday"
+    events:
+      - { time: "By appointment", label: "Office hours", type: "office_hours" }
+
+# Current-student links. `home: true` marks the ones that also appear in the
+# homepage quick-links strip. Resources shows all of them. Real Fall 2026 URLs:
+links:
+  - { name: "Canvas",       url: "https://umich.instructure.com/courses/874406",              note: "Course hub" }
+  - { name: "Piazza",       url: "https://piazza.com/umich/fall2026/eecs110001fa2026",          note: "Ask questions here", home: true }
+  - { name: "PrairieLearn", url: "https://us.prairielearn.com/pl/course_instance/216334",       note: "Practice problems & quizzes" }
+  - { name: "Gradescope",   url: "https://www.gradescope.com/courses/1338138",                  note: "Lab, homework & project submissions", home: true }
+  - { name: "Google Drive", url: "https://drive.google.com/drive/folders/1n65dzZoxP5Si-lLQjueP3e2RzgBMk2kW?usp=drive_link", note: "Slides & assignment instructions", home: true }
+  - { name: "Google Colab", url: "https://colab.research.google.com/",                          note: "Write & run Python notebooks" }
+
+# Staff cards. One block per person; instructor first. IA block(s) added only when
+# there is an IA (often none, sometimes none in Winter). New per-person fields feed
+# the wide card + emoji reveals. Any field left blank is simply omitted from the card.
+staff:
+  - name: "Madelyn Gatchel"
+    role: "Instructor"
+    pronouns: "she/her"
+    email: "gatchel@umich.edu"
+    hometown: "New Bern, NC"
+    photo: "assets/img/staff/madelyn.jpg"   # card also renders fine without a photo
+    # name_pronunciation feeds the 🗣️ reveal — a friendly "call me by my first name" signal.
+    name_pronunciation: "MAD-uh-lin"
+    class: "PhD student"
+    major: "Computer Science & Engineering"
+    ask_about: "Reading, playing games, and Group-X/personal training through M Rec."
+    why_teach: "Seeing students light up when they meet a goal or grasp a new concept."
+    advice: "Come to office hours, and use Google Calendar to keep your meetings and deadlines organized."
+    fun_fact: "In elementary school, my favorite recess activity was playing in the shark tooth pile."
+    blurb: >
+      Hi! I'm Madelyn Gatchel. I'm a final-year Ph.D. candidate in Computer Science and Engineering,
+      advised by Professor Michael Wellman in the Strategic Reasoning Group. My research interests lie
+      at the intersection of artificial intelligence and algorithmic game theory.
+
+
+      I came to computer science through a love of math and problem-solving, but I was intimidated
+      to take my first CS class. I hadn't taken any CS before college, and it was my pre-major
+      advisor's simple encouragement — “I believe in your ability to succeed in CS” — that gave me
+      the confidence to sign up. That support, along with mentorship from many others, is why I'm
+      here today and why I love teaching this course. If you're feeling uncertain about CS, I'm here
+      to tell you: I believe in your ability to succeed, and I hope you'll consider taking EECS 110.
+
+
+      I'm passionate about teaching, mentorship, and supporting students from all backgrounds as they
+      begin their journey in computer science. Feel free to reach out with questions or just to say hi.
+
+# Footer: a short summary shown on every page, linking to the full policy page.
+academic_integrity_summary: >
+  Course materials are the copyrighted property of their authors. Posting or sharing your solutions
+  anywhere others can access them violates U-M academic integrity policy.
+
+# Full policy — stored here for the /academic-integrity/ page. That page is
+# currently UNPUBLISHED and unlinked from the footer (pending a language review);
+# only the one-line summary above is public for now. To publish: set
+# `published: true` in academic-integrity.md and restore the footer link.
+academic_integrity_full: |
+  **Copyright & academic integrity**
+
+  All materials provided for this course — including but not limited to labs, projects, notes, and
+  starter code — are the copyrighted intellectual property of their author(s). While these materials
+  are licensed for public, non-commercial use, that license does **not** grant you permission to post
+  or republish your solutions to course assignments.
+
+  It is strictly prohibited to post, share, or otherwise distribute solution code (in part or in
+  full) in any manner or on any platform — public or private — where it may be accessed by anyone
+  other than the course staff. This includes, but is not limited to:
+
+  - Public-facing websites (a personal blog, a public GitHub repo).
+  - Solution-sharing sites (such as Chegg or Course Hero).
+  - Private collections, archives, or repositories (student-group "test banks," club wikis, shared
+    Google Drives).
+  - Group messaging platforms (such as Discord or Slack).
+
+  Doing so violates the University's academic integrity policy and will be treated as such.
+
+  Asking a question by posting a **small** code snippet to our private course discussion forum is
+  **not** a violation of this policy.

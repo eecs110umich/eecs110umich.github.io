@@ -1,0 +1,16 @@
+# Jekyll build output and caches
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Local bundler install (we vendor gems into the repo dir, never commit them)
+vendor/
+.bundle/
+
+# GitHub Pages ignores your lockfile and resolves gems itself, so committing
+# it only invites version-mismatch confusion. Keep it local.
+Gemfile.lock
+
+# macOS
+.DS_Store

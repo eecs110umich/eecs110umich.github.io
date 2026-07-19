@@ -1,0 +1,26 @@
+# Site-wide configuration. NOTHING semester-specific belongs here —
+# term, dates, links, staff, and office hours all live in _data/course.yml.
+# See README.md ("What to change each semester").
+
+title: "EECS 110 · Discover Computer Science"
+description: >-
+  A 2-credit introduction to Python at the University of Michigan for students
+  with zero prior programming experience. Everyone is welcome.
+
+# This repo is named <org>.github.io, so it is served at the domain root.
+# That means baseurl is empty and every internal link is a plain absolute
+# path like "/staff/". Do not set baseurl to "/eecs110umich.github.io".
+baseurl: ""
+url: "https://eecs110umich.github.io"
+
+# Build settings
+markdown: kramdown
+encoding: utf-8
+
+# Files that should never be copied into the built site.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
+  - .sass-cache

@@ -1,0 +1,17 @@
+<footer class="site-footer">
+  <p class="footer-copy">
+    &copy; {{ site.time | date: "%Y" }}
+    {{ site.data.course.course.university }} &middot;
+    {{ site.data.course.course.code }} {{ site.data.course.course.name }}
+  </p>
+  {%- assign summary = site.data.course.academic_integrity_summary | strip -%}
+  {%- if summary != "" -%}
+  {%- comment -%}
+    The full-policy page (/academic-integrity/) is currently unpublished pending a
+    language review, so the footer shows only this one-line summary. When the page
+    is published, restore the link:
+      <a class="footer-policy-link" href="/academic-integrity/">Full policy &rarr;</a>
+  {%- endcomment -%}
+  <p class="footer-integrity">{{ summary }}</p>
+  {%- endif -%}
+</footer>
