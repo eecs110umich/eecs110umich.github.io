@@ -6,7 +6,7 @@ permalink: /schedule/
 
 # Schedule
 
-Here is what a typical week looks like. **Exact due dates and any changes always live on Canvas.**
+Here is what a typical week looks like. **Refer to Canvas for exact due dates and updates.**
 
 {% comment %}
   Legend + Mon–Fri day cards render from site.data.course.weekly_calendar.
@@ -47,8 +47,8 @@ Here is what a typical week looks like. **Exact due dates and any changes always
 
 <p class="cal-note note">
   <strong>How each week connects:</strong> the in-class <strong>lab</strong> practices that day's
-  lecture; the in-class <strong>quiz</strong> covers the previous week's lab; and the
-  <strong>homework</strong> due that night covers the previous week's lecture.
+  lecture; the in-class <strong>quiz</strong> and the
+  <strong>homework</strong> due that night cover the previous week's lecture.
 </p>
 
 <p class="cal-note note">
