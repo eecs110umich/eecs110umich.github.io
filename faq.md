@@ -64,6 +64,14 @@ No, all you need is a laptop.
 </details>
 
 <details class="faq-item">
+<summary>Does EECS 110 count toward the CS major or minor?</summary>
+<div class="faq-answer" markdown="1">
+EECS 110 doesn't fulfill any requirements for the CS major or minor. However, if you later declare
+the CS major, the course will factor into your CS major GPA.
+</div>
+</details>
+
+<details class="faq-item">
 <summary>Can I use generative AI tools like ChatGPT on assignments?</summary>
 <div class="faq-answer" markdown="1">
 To use generative AI tools responsibly and effectively, you need a strong mastery of the fundamental
@@ -150,9 +158,5 @@ be allocated for a given term; historically this has sometimes been the case in 
 semester is different.
 </div>
 </details>
-
-<!-- PENDING (do not render): "Does EECS 110 count toward a CS major, minor, or any degree
-     requirement?" — answer pending from the undergraduate advising office. Leave as this comment
-     until confirmed, then add as a Q&A. -->
 
 </div>

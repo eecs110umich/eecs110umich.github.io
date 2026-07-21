@@ -13,6 +13,11 @@
 # Key map:
 #   course              — code/name/term + tagline + syllabus link (Home banner).
 #   course.term_season  — "fall" | "winter"; gates term-specific FAQ entries.
+#   course.syllabus_published — false while syllabus_url points at a not-yet-public
+#                         doc; the Home card then shows "coming soon" copy instead
+#                         of a live link. Flip to true once students may open it.
+#   past_syllabi        — prior-term syllabus PDFs (in assets/syllabi/) shown in a
+#                         click-to-reveal disclosure on the Home page.
 #   meeting             — when/where class meets (meta line).
 #   weekly_calendar     — drives the Schedule page's Mon–Fri calendar. One entry
 #                         per weekday; each event has a time (may be blank), a
@@ -42,12 +47,23 @@ course:
   tagline: ""                  # optional welcoming line under the title; blank = hidden
 
   syllabus_url: "https://docs.google.com/document/d/1kqoNdzTBMdZHj794mee9GCHgADdsBs3kI62xocBRn8M/edit?usp=sharing"
+  syllabus_published: false    # false → Home card shows "coming soon" (see key map above)
 
 meeting:
   day: "Tuesday"
   time: "3:30–5:30 pm"
   location: "CHRYS 151"          # TODO: confirm room each term
   timezone: "America/Detroit"
+
+# Past-term syllabi, shown in the click-to-reveal disclosure on the Home page.
+# Most-recent-first. Each PDF lives in assets/syllabi/ and is referenced by
+# filename only (the template prefixes /assets/syllabi/). Add a line each term.
+past_syllabi:
+  - { term: "Winter 2026", file: "eecs110-wn2026.pdf" }
+  - { term: "Fall 2025",   file: "eecs110-fa2025.pdf" }
+  - { term: "Winter 2025", file: "eecs110-wn2025.pdf" }
+  - { term: "Fall 2024",   file: "eecs110-fa2024.pdf" }
+  - { term: "Winter 2024", file: "eecs110-wn2024.pdf" }
 
 # The weekly-calendar view on the Schedule page renders from this. One entry per
 # weekday (Mon–Fri). Each event has a time (may be blank/omitted), a label, and a
@@ -126,7 +142,7 @@ staff:
 # Footer: a short summary shown on every page, linking to the full policy page.
 academic_integrity_summary: >
   Course materials are the copyrighted property of their authors. Posting or sharing your solutions
-  anywhere others can access them violates U-M academic integrity policy.
+  anywhere others can access them violates the course's academic integrity policy.
 
 # Full policy — stored here for the /academic-integrity/ page. That page is
 # currently UNPUBLISHED and unlinked from the footer (pending a language review);

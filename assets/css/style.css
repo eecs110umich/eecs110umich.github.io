@@ -403,13 +403,51 @@ hr {
   border-radius: var(--radius);
   box-shadow: var(--card-shadow);
 }
-a.syllabus-card:hover, a.syllabus-card:focus {
-  background: #eaf3fb;
-  text-decoration: none;
-}
 .syllabus-card__title { font-size: 1.1rem; font-weight: 700; color: var(--heading); }
 .syllabus-card__note { color: var(--text-muted); font-size: 0.95rem; }
 .syllabus-card--pending .syllabus-card__note { font-style: italic; }
+
+/* Past-syllabi disclosure — reuses the FAQ +/– summary marker for consistency. */
+.syllabus-past { margin-top: 0.6rem; }
+.syllabus-past > summary {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+  list-style: none;
+}
+.syllabus-past > summary::-webkit-details-marker { display: none; }
+.syllabus-past > summary::before {
+  content: "+";
+  font-weight: 700;
+  color: var(--accent);
+}
+.syllabus-past[open] > summary::before { content: "\2013"; }
+.syllabus-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.7rem;
+}
+.syllabus-btn {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: #fff;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+}
+.syllabus-btn:hover, .syllabus-btn:focus {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  text-decoration: none;
+}
 
 /* --- schedule: weekly calendar ------------------------------------------- */
 

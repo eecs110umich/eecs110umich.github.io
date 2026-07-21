@@ -38,19 +38,32 @@ layout: default
   understanding of the field, and the confidence to continue exploring computer science.
 </p>
 
-{%- assign has_syllabus = false -%}
-{%- if course.syllabus_url and course.syllabus_url != "" and course.syllabus_url != "TODO" -%}{%- assign has_syllabus = true -%}{%- endif -%}
-{% if has_syllabus %}
-<a class="syllabus-card" href="{{ course.syllabus_url }}">
+{%- comment -%}
+  The card is a <div> (not one big <a>) so it can hold both the note and the
+  Past-syllabi disclosure — a <details> can't live inside an <a>. Published =
+  syllabus_url is set AND syllabus_published is true; otherwise show "coming
+  soon" copy but no live current-term link.
+{%- endcomment -%}
+{%- assign syllabus_ready = false -%}
+{%- if course.syllabus_published and course.syllabus_url and course.syllabus_url != "" and course.syllabus_url != "TODO" -%}{%- assign syllabus_ready = true -%}{%- endif -%}
+<div class="syllabus-card{% unless syllabus_ready %} syllabus-card--pending{% endunless %}">
   <span class="syllabus-card__title">📄 Course syllabus</span>
-  <span class="syllabus-card__note">Read the full syllabus for {{ course.term }}</span>
-</a>
-{% else %}
-<div class="syllabus-card syllabus-card--pending">
-  <span class="syllabus-card__title">📄 Course syllabus</span>
-  <span class="syllabus-card__note">Syllabus link coming soon</span>
+  {% if syllabus_ready %}
+  <span class="syllabus-card__note"><a href="{{ course.syllabus_url }}">Read the full syllabus for {{ course.term }} →</a></span>
+  {% else %}
+  <span class="syllabus-card__note">The {{ course.term }} syllabus is being finalized. Once it's ready, it will be posted here.</span>
+  {% endif %}
+  {% if site.data.course.past_syllabi and site.data.course.past_syllabi != empty %}
+  <details class="syllabus-past">
+    <summary>Past syllabi</summary>
+    <div class="syllabus-btns">
+      {% for s in site.data.course.past_syllabi %}
+      <a class="syllabus-btn" href="/assets/syllabi/{{ s.file }}">{{ s.term }}</a>
+      {% endfor %}
+    </div>
+  </details>
+  {% endif %}
 </div>
-{% endif %}
 
 ## Course components
 
