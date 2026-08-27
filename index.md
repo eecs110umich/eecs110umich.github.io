@@ -74,7 +74,7 @@ layout: default
 |---|---:|---|
 | Attendance | 3% | Graded on 9 of 11 classes (2 absences are dropped). |
 | Labs | 14% | Group work in the second half of class: a coding portion plus a worksheet. |
-| Quizzes | 5% | Taken in class on PrairieLearn; your 2 lowest scores are dropped. |
+| Quizzes | 5% | Taken in class on PrairieLearn or Canvas; your 2 lowest scores are dropped. |
 | Homework | 28% | Weekly assignments that reinforce the previous lecture. |
 | CS interview | 10% | Interview someone further along in CS and write a short reflection. |
 | Final project | 25% | In groups, code a game and present on an intermediate CS topic. |
