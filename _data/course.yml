@@ -101,7 +101,7 @@ links:
   - { name: "Piazza",       url: "https://piazza.com/umich/fall2026/eecs110001fa2026",          note: "Ask questions here", home: true }
   - { name: "PrairieLearn", url: "https://us.prairielearn.com/pl/course_instance/216334",       note: "Practice problems & quizzes" }
   - { name: "Gradescope",   url: "https://www.gradescope.com/courses/1338138",                  note: "Lab, homework & project submissions", home: true }
-  - { name: "Google Drive", url: "https://drive.google.com/drive/folders/1n65dzZoxP5Si-lLQjueP3e2RzgBMk2kW?usp=drive_link", note: "Slides & assignment instructions", home: true }
+  - { name: "Google Drive", url: "https://drive.google.com/drive/folders/1n65dzZoxP5Si-lLQjueP3e2RzgBMk2kW?usp=drive_link", note: "Slides & important documents", home: true }
   - { name: "Google Colab", url: "https://colab.research.google.com/",                          note: "Write & run Python notebooks" }
 
 # Staff cards. One block per person; instructor first. IA block(s) added only when
